@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government-office green-grey paper, stamp-pad indigo, marigold for deadlines. */
+    --background: 100 13% 93%;      /* #EEF1EC */
+    --foreground: 150 8% 13%;       /* #1E2321 */
+    --card: 0 0% 100%;
+    --card-foreground: 150 8% 13%;
+    --primary: 229 51% 28%;         /* #23306B stamp-pad indigo */
+    --primary-foreground: 0 0% 100%;
+    --ink: 229 51% 28%;
+    --secondary: 105 11% 89%;
+    --secondary-foreground: 150 8% 13%;
+    --muted: 105 11% 89%;           /* #E2E7E0 */
+    --muted-foreground: 143 5% 36%; /* #56605A */
+    --accent: 229 40% 94%;
+    --accent-foreground: 229 51% 28%;
+    --marigold: 40 82% 50%;         /* #E8A317 */
+    --marigold-soft: 42 86% 91%;
+    --seal: 3 71% 41%;              /* #B3261E */
+    --destructive: 3 71% 41%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 104 11% 81%;
+    --input: 104 11% 78%;
+    --ring: 229 51% 40%;
+    --radius: 0.625rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --background: 217 29% 11%;
+      --foreground: 100 14% 90%;
+      --card: 219 27% 15%;
+      --card-foreground: 100 14% 90%;
+      --primary: 230 74% 78%;
+      --primary-foreground: 229 51% 14%;
+      --ink: 230 74% 78%;
+      --secondary: 219 22% 20%;
+      --secondary-foreground: 100 14% 90%;
+      --muted: 219 22% 20%;
+      --muted-foreground: 215 12% 66%;
+      --accent: 229 30% 24%;
+      --accent-foreground: 230 74% 85%;
+      --marigold: 40 85% 58%;
+      --marigold-soft: 38 40% 20%;
+      --seal: 4 80% 66%;
+      --destructive: 4 80% 66%;
+      --border: 219 18% 26%;
+      --input: 219 18% 30%;
+      --ring: 230 74% 78%;
+    }
+  }
+
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern";
+    line-height: 1.55;
+  }
+  :lang(hi), :lang(kn) { line-height: 1.7; }
+
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .measure { max-width: 68ch; }
+}
